@@ -36,11 +36,7 @@ const App: React.FC = observer(() => {
   useEffect(() =>
     autorun(() => {
       // scrolling effect
-      if (
-        !queriesStore.currentLetter ||
-        !scroller.get(queriesStore.currentLetter)
-      )
-        return;
+      if (!scroller.get(queriesStore.currentLetter)) return;
       scroller.scrollTo(queriesStore.currentLetter, {
         duration: theme.animations.scrollDur,
         smooth: true,
