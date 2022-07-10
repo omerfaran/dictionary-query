@@ -1,14 +1,18 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-const Wrapper = styled.div`
-  height: 140px;
+const Wrapper = styled.header`
+  height: ${({ theme }) => theme.dimensions.headerHeight};
   width: 100%;
   background-color: ${({ theme }) => theme.colors.primary};
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 2rem;
+
+  @media (max-width: 700px) {
+    height: calc(${({ theme }) => theme.dimensions.headerHeight} * 0.7);
+  }
 `;
 
 const Title = styled.h1`
@@ -20,9 +24,7 @@ const Title = styled.h1`
 const Header: React.FC = () => {
   return (
     <Wrapper>
-      <header>
-        <Title>English Dictionary Query!</Title>
-      </header>
+      <Title>English Dictionary Query!</Title>
     </Wrapper>
   );
 };

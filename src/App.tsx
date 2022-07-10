@@ -13,15 +13,21 @@ import { observer } from "mobx-react";
 import { autorun } from "mobx";
 import { ThemeProvider } from "@emotion/react";
 
+const Container = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+`;
+
 const CardsWrapper = styled.div`
   margin: 2rem auto;
   max-width: 800px;
-  margin-bottom: 355px;
+  // margin-bottom: 355px;
 `;
 
 const Footer = styled.footer`
   margin-top: auto;
-  position: fixed;
+  position: sticky;
   width: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -47,21 +53,23 @@ const App: React.FC = observer(() => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header />
-      <main>
-        <CardsWrapper>
-          {queriesStore.results.map((result) => (
-            <Element key={result.letter} name={result.letter}>
-              <Card result={result} />
-            </Element>
-          ))}
-        </CardsWrapper>
-      </main>
-      <Footer>
-        <Keyboard
-          clicked={(letter) => queriesStore.dispatchQueryResult(letter)}
-        />
-      </Footer>
+      <Container>
+        <Header />
+        <main>
+          <CardsWrapper>
+            {queriesStore.results.map((result) => (
+              <Element key={result.letter} name={result.letter}>
+                <Card result={result} />
+              </Element>
+            ))}
+          </CardsWrapper>
+        </main>
+        <Footer>
+          <Keyboard
+            clicked={(letter) => queriesStore.dispatchQueryResult(letter)}
+          />
+        </Footer>
+      </Container>
     </ThemeProvider>
   );
 });

@@ -8,6 +8,9 @@ declare module "@emotion/react" {
       keyboard: string;
       tooltip: string;
     };
+    dimensions: {
+      headerHeight: string;
+    };
     animations: {
       cardAnimationDelay: string;
       scrollDur: string;

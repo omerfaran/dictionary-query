@@ -7,6 +7,9 @@ export const theme: Theme = {
     keyboard: "#eff3f2",
     tooltip: "#333",
   },
+  dimensions: {
+    headerHeight: "140px",
+  },
   animations: {
     cardAnimationDelay: "200ms",
     scrollDur: "600ms",
